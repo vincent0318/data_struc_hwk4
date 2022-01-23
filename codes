@@ -1,0 +1,31 @@
+void Array_Dijkstra(int n, int y){
+    bool n[node];
+    for(int i=0; i<n; i++){
+        dist[v][i]=table[v][i];
+        n[i]=0;
+    }
+    dist[v][v]=0;
+    n[v]=1;
+    for(int i=1; i<n; i++){
+        int tmp=INT_MAX;
+        int u=v;
+        for(int j=0; j<n; j++){
+            of(!n[j] && dist[v][j]<tmp){
+                u=j;
+                tmp=dist[v][j];
+            }
+        }
+        n[u]=1;
+        for(int j=0; j<n; j++){
+            if((!n[j]) && table[u][j] < INT_MAX){
+                int newdist=dist[v][u]+table[u][j];
+                if(newdist<dist[v][j]){
+                    dist[v][j]=newdist;
+                }
+            }
+        }
+    }
+}
+
+
+
